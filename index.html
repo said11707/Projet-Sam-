@@ -1,379 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-        /* box-sizing: border-box; */
-    }
-    
-    body {
-        font-family: 'Times new roman';
-        margin: 0;
-        padding: 0;
-    }
-    
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        font-family: 'Times new roman';
-    }
-    
-    .wrap {
-        background: rgba(0, 0, 0, 0.5) url(./dc5c2e3c-us-flag_0lp0bc00000000000001o.jpg) no-repeat;
-        background-position: center;
-        background-blend-mode: overlay;
-        background-size: cover;
-        min-height: 100vh;
-        overflow: hidden;
-    }
-    
-    .wave {
-        position: absolute;
-        width: 100%;
-        bottom: -50px;
-        color: #fff;
-        opacity: 1;
-    }
-    
-    header {
-        display: block;
-        top: 0;
-        left: 0;
-        width: 100%;
-        padding: 25px 80px;
-        background: linear-gradient(to top, transparent, rgba(0, 0, 0, 0, 6));
-    }
-    
-    header .logo {
-        width: 23rem;
-        float: left;
-        display: block;
-    }
-    
-    .content {
-        max-width: 63%;
-        padding: 179px 57px 0;
-        color: #fff;
-        position: relative;
-        bottom: 45rem;
-    }
-    
-    .content h1 {
-        font-size: 48px;
-    }
-    
-    .content p {
-        font-size: 20px;
-        padding: 25px 0;
-        font-weight: 300;
-    }
-    
-    .content .btn-group {
-        margin-top: 45px;
-    }
-    
-    .content a {
-        display: inline-block;
-        padding: 15px 45px;
-        text-decoration: none;
-        color: #fff;
-        border-radius: 50px;
-    }
-    
-    .content a.color1 {
-        background-color: #ffc109;
-    }
-    
-    .our-Age {
-        position: relative;
-        bottom: 41rem;
-        padding: 24px;
-        font-size: 28px;
-        text-align: left;
-    }
-    
-    .our-Age .sm {
-        margin-top: 45px;
-        text-align: left;
-    }
-    
-    .sm a {
-        display: inline-block;
-        padding: 15px 45px;
-        text-decoration: none;
-        color: #fff;
-        border-radius: 50px;
-        background-color: #ffc109;
-    }
-    
-    .sm a:hover {
-        transform: scale(.8);
-    }
-    
-    .sm a:hover::before {
-        border-left: 4px solid;
-        border-right: 4px solid;
-        transform: skewX(20deg);
-    }
-    
-    .sm a:hover::after {
-        border-top: 4px solid;
-        border-bottom: 4px solid;
-        transform: skewY(-20deg);
-    }
-    
-    .card {
-        margin-right: 20px;
-        margin-left: 20px;
-    }
-    
-    img {
-        max-width: 100%;
-    }
-    
-    .container {
-        display: flex;
-        align-items: left;
-        justify-content: left;
-        height: 100vh;
-        width: 70%;
-        position: relative;
-        bottom: 28rem;
-    }
-    
-    .card {
-        position: relative;
-        background: #333;
-        width: 400px;
-        height: 65vh;
-        border-radius: 6px;
-        padding: 2rem;
-        color: #aaa;
-        box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);
-        overflow: hidden;
-    }
-    
-    .card__image-container {
-        margin: -2rem -2rem 1rem -2rem;
-    }
-    
-    .card__line {
-        opacity: 0;
-        animation: LineFadeIn .8s .8s forwards ease-in;
-    }
-    
-    .card__image {
-        opacity: 0;
-        animation: ImageFadeIn .8s 1.4s forwards;
-    }
-    
-    .card__title {
-        color: white;
-        margin-top: 66px;
-        font-weight: 800;
-        letter-spacing: 0.01em;
-    }
-    
-    .card__content {
-        margin-top: -1rem;
-        opacity: 0;
-        animation: ContentFadeIn .8s 1.6s forwards;
-    }
-    
-    .card__svg {
-        position: absolute;
-        left: 0;
-        top: 115px;
-    }
-    
-    @keyframes LineFadeIn {
-        0% {
-            opacity: 0;
-            d: path("M 0 300 Q 0 300 0 300 Q 0 300 0 300 C 0 300 0 300 0 300 Q 0 300 0 300 ");
-            stroke: #fff;
-        }
-        50% {
-            opacity: 1;
-            d: path("M 0 300 Q 50 300 100 300 Q 250 300 350 300 C 350 300 500 300 650 300 Q 750 300 800 300");
-            stroke: #888BFF;
-        }
-        100% {
-            opacity: 1;
-            d: path("M -2 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 802 400");
-            stroke: #545581;
-        }
-    }
-    
-    @keyframes ContentFadeIn {
-        0% {
-            transform: translateY(-1rem);
-            opacity: 0;
-        }
-        100% {
-            transform: translateY(0);
-            opacity: 1;
-        }
-    }
-    
-    @keyframes ImageFadeIn {
-        0% {
-            transform: translate(-0.5rem, -0.5rem) scale(1.05);
-            opacity: 0;
-            filter: blur(2px);
-        }
-        50% {
-            opacity: 1;
-            filter: blur(2px);
-        }
-        100% {
-            transform: translateY(0) scale(1);
-            opacity: 1;
-            filter: blur(0);
-        }
-    }
-    
-    .pub {
-        position: relative;
-        width: 27%;
-        bottom: 31rem;
-        /* left: 2rem; */
-        float: right;
-        right: 1rem;
-    }
-    
-    .rest-of {
-        width: 92% !important;
-        float: left;
-        overflow: hidden;
-        margin-top: 14px !important;
-        padding: 60.9px;
-        text-align: center;
-        background-color: #333;
-        color: #fff;
-        font-size: 22px;
-    }
-    
-    .copy {
-        margin-top: 25px;
-    }
-</style>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style.css">
+        <title>Document</title>
+    </head>
 
-<body>
+    <body>
 
-    <div class="wrap">
-        <header>
-            <img class="logo" src="logo1.png">
-        </header>
-    </div>
+        <body>
 
-    <div class="content">
-        <h1>Seniors Are Saving Hundreds With Medicare Supplement Plans</h1>
-        <p>Seniors are benefiting from adding Meducare supplement plans on top of Medicare</p>
-        <div class="btn-group">
-            <a href="#" class="color1">Find My Rate</a>
-            <a href="#">Learn more</a>
-        </div>
-    </div>
-
-    <!--svg-->
-    <img class="wave" src="wave.svg" alt="">
-    <section class="cont" style="position: relative; top:16rem;">
-        <img class="pub" src="67811223-us-states.gif" alt="">
-
-        <div class="container">
-            <div class="card">
-                <div class="card__image-container">
-                    <img class="card__image" src="one.jpg" alt="">
-                </div>
-
-                <svg class="card__svg" viewBox="0 0 800 500">
-      
-              <path d="M 0 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 800 400 L 800 500 L 0 500" stroke="transparent" fill="#333"/>
-              <path class="card__line" d="M 0 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 800 400" stroke="pink" stroke-width="3" fill="transparent"/>
-            </svg>
-
-                <div class="card__content">
-                    <h3 class="card__title">USA:</h3>
-                    <p>We've heard a lot of health care news over the last year as Congress looked to put their own stamp on health insurance. But what you may not know is the effect this has had on the entire industry. Rates are Affordable, and you might
-                        be surprised at how much cheaper you can get Medicare Supplement Insurance now. </p>
-                </div>
+            <div class="wrap">
+                <header>
+                    <img class="logo" src="image/logo1.png">
+                </header>
             </div>
 
-            <div class="card">
-                <div class="card__image-container">
-                    <img class="card__image" src="one.jpg" alt="">
-                </div>
-
-                <svg class="card__svg" viewBox="0 0 800 500">
-      
-              <path d="M 0 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 800 400 L 800 500 L 0 500" stroke="transparent" fill="#333"/>
-              <path class="card__line" d="M 0 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 800 400" stroke="pink" stroke-width="3" fill="transparent"/>
-            </svg>
-
-                <div class="card__content">
-                    <h4 class="card__title">If You Have Medicare, You Should Check Rates For A Supplement Plan. </h4>
-                    <p>There are so many different supplemental plans, it is hard to find the perfect fit for your needs.
-                        <font color="#1966BA">Your premiums could be lower </font> - in some cases a lot lower - for the same, or even better, coverage. But nobody is going to tell you this; you have to check on your own. That is why we are </p>
+            <div class="content">
+                <h1>Seniors Are Saving Hundreds With Medicare Supplement Plans</h1>
+                <p>Seniors are benefiting from adding Meducare supplement plans on top of Medicare</p>
+                <div class="btn-group">
+                    <a href="#" class="color1">Find My Rate</a>
+                    <a href="#">Learn more</a>
                 </div>
             </div>
+            <!--svg-->
+            <img class="wave" src="image/wave.svg" alt="">
+            <section style="padding-top: 16px;">
+                <section class="cont">
 
-            <div class="card">
-                <div class="card__image-container">
-                    <img class="card__image" src="one.jpg" alt="">
-                </div>
+                    <div class="container">
+                        <div class="card">
+                            <div class="card__image-container">
+                                <img class="card__image" src="image/one.jpg" alt="" width="400px">
+                            </div>
 
-                <svg class="card__svg" viewBox="0 0 800 500">
-      
-              <path d="M 0 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 800 400 L 800 500 L 0 500" stroke="transparent" fill="#333"/>
-              <path class="card__line" d="M 0 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 800 400" stroke="pink" stroke-width="3" fill="transparent"/>
-            </svg>
+                            <svg class="card__svg" viewBox="0 0 800 500">
 
-                <div class="card__content">
-                    <h4 class="card__title">Check Medicare Supplemental Plans and Rates for Free</h4>
-                    <p>There's one way to be sure - compare Medicare Supplement plans and rates at
-                        <font color="#1966BA">Us Insurance's</font>.Simply tap your age below to get started. It'll take less than five minutes, and it's completely free. And there's a good chance you'll be surprised at how affordable quality Medicare Supplement insurance
-                        can be and how much you save by getting the coverage you need. </p>
-                </div>
-            </div>
+                                <path
+                                    d="M 0 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 800 400 L 800 500 L 0 500"
+                                    stroke="transparent" fill="#333" />
+                                <path class="card__line"
+                                    d="M 0 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 800 400"
+                                    stroke="pink" stroke-width="3" fill="transparent" />
+                            </svg>
 
-        </div>
+                            <div class="card__content">
+                                <h3 class="card__title">USA:</h3>
+                                <p>We've heard a lot of health care news over the last year as Congress looked to put
+                                    their
+                                    own stamp on health insurance. But what you may not know is the effect this has had
+                                    on
+                                    the entire industry. Rates are Affordable, and you might
+                                    be surprised at how much cheaper you can get Medicare Supplement Insurance now. </p>
+                            </div>
+                        </div>
 
-        <div class="our-Age">
-            <h3>Tap Your Age :</h3>
-            <br>
-            <div class="sm">
-                <a href="#">18-25</a>
-                <a href="#">26-35</a>
-                <a href="#">36-45</a>
-                <a href="#">46-55</a>
-                <a href="#">56-64</a>
-                <a href="#">65 & Over</a>
-            </div>
+                        <div class="card">
+                            <div class="card__image-container">
+                                <img class="card__image" src="image/one.jpg" alt="" width="400px">
+                            </div>
+
+                            <svg class="card__svg" viewBox="0 0 800 500">
+
+                                <path
+                                    d="M 0 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 800 400 L 800 500 L 0 500"
+                                    stroke="transparent" fill="#333" />
+                                <path class="card__line"
+                                    d="M 0 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 800 400"
+                                    stroke="pink" stroke-width="3" fill="transparent" />
+                            </svg>
+
+                            <div class="card__content">
+                                <h4 class="card__title">If You Have Medicare, You Should Check Rates For A Supplement
+                                    Plan.
+                                </h4>
+                                <p>There are so many different supplemental plans, it is hard to find the perfect fit
+                                    for
+                                    your needs.
+                                    <font color="#1966BA">Your premiums could be lower </font> - in some cases a lot
+                                    lower -
+                                    for the same, or even better, coverage. But nobody is going to tell you this; you
+                                    have
+                                    to check on your own. That is why we are </p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card__image-container">
+                                <img class="card__image" src="image/one.jpg" alt="" width="400px">
+                            </div>
+
+                            <svg class="card__svg" viewBox="0 0 800 500">
+
+                                <path
+                                    d="M 0 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 800 400 L 800 500 L 0 500"
+                                    stroke="transparent" fill="#333" />
+                                <path class="card__line"
+                                    d="M 0 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 800 400"
+                                    stroke="pink" stroke-width="3" fill="transparent" />
+                            </svg>
+
+                            <div class="card__content">
+                                <h4 class="card__title">Check Medicare Supplemental Plans and Rates for Free</h4>
+                                <p>There's one way to be sure - compare Medicare Supplement plans and rates at
+                                    <font color="#1966BA">Us Insurance's</font>.Simply tap your age below to get
+                                    started.
+                                    It'll take less than five minutes, and it's completely free. And there's a good
+                                    chance
+                                    you'll be surprised at how affordable quality Medicare Supplement insurance
+                                    can be and how much you save by getting the coverage you need. </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="our-Age">
+                        <h3>Tap Your Age :</h3>
+                        <br>
+                        <div class="sm">
+                            <a href="#">18-25</a>
+                            <a href="#">26-35</a>
+                            <a href="#">36-45</a>
+                            <a href="#">46-55</a>
+                            <a href="#">56-64</a>
+                            <a href="#">65 & Over</a>
+                        </div>
 
 
-        </div>
-        </div>
-    </section>
-    <footer class="rest-of-body rest-of" style="width: 100%;">
-        <div>
-            <p>THIS IS AN ADVERTISEMENT AND NOT AN ACTUAL NEWS ARTICLE, BLOG, OR CONSUMER PROTECTION UPDATE.
-            </p>
-            <p>The site is not affiliated with or endorsed by the United States government, the federal Medicare program or the website medicare.gov.</p>
-            <p class="copy">Copyright © 2020 Top Shared News. All rights reserved</p>
-        </div>
-    </footer>
+                    </div>
+                    </div>
+                </section>
+                <section class="cont cont-image">
+                    <img class="pub" src="image/67811223-us-states.gif" alt="" height="100%">
+                </section>
+                <footer class="cont" style="width: 100%;">
+                    <div>
+                        <p>THIS IS AN ADVERTISEMENT AND NOT AN ACTUAL NEWS ARTICLE, BLOG, OR CONSUMER PROTECTION UPDATE.
+                        </p>
+                        <p>The site is not affiliated with or endorsed by the United States government, the federal
+                            Medicare
+                            program or the website medicare.gov.</p>
+                        <p class="copy">Copyright © 2020 Top Shared News. All rights reserved</p>
+                    </div>
+                </footer>
+            </section>
+        </body>
 
-
+</html>
 </body>
 
 </html>
